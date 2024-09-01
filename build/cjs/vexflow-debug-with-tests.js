@@ -1,5 +1,5 @@
 /*!
- * VexFlow 4.2.7-sam.1   2024-09-01T19:03:51.503Z   b81469a3614da13481dde5d1389294f811a0a781
+ * VexFlow 4.2.7-sam.2   2024-09-01T19:10:07.709Z   d1bcc9a0a9208922150efe21894fb4f96ac4de70
  * Copyright (c) 2010 Mohit Muthanna Cheppudira <mohit@muthanna.com>
  * https://www.vexflow.com   https://github.com/0xfe/vexflow
  */
@@ -29,9 +29,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ID": () => (/* binding */ ID),
 /* harmony export */   "VERSION": () => (/* binding */ VERSION)
 /* harmony export */ });
-const VERSION = '4.2.7-sam.1';
-const ID = 'b81469a3614da13481dde5d1389294f811a0a781';
-const DATE = '2024-09-01T19:03:51.503Z';
+const VERSION = '4.2.7-sam.2';
+const ID = 'd1bcc9a0a9208922150efe21894fb4f96ac4de70';
+const DATE = '2024-09-01T19:10:07.709Z';
 
 
 /***/ }),
@@ -27794,7 +27794,6 @@ class StaveNote extends _stemmablenote__WEBPACK_IMPORTED_MODULE_4__.StemmableNot
         // Sorted variant of keyProps used internally
         this.sortedKeyProps = [];
         this.ledgerLineStyle = {};
-        this.addClass('stavenote');
         this.clef = (_a = noteStruct.clef) !== null && _a !== void 0 ? _a : 'treble';
         this.octave_shift = (_b = noteStruct.octave_shift) !== null && _b !== void 0 ? _b : 0;
         // Pull note rendering properties.
@@ -28526,7 +28525,7 @@ class StaveNote extends _stemmablenote__WEBPACK_IMPORTED_MODULE_4__.StemmableNot
         L('Rendering ', this.isChord() ? 'chord :' : 'note :', this.keys);
         // Apply the overall style -- may be contradicted by local settings:
         this.applyStyle();
-        ctx.openGroup(this.getAttribute('class'), this.getAttribute('id'));
+        ctx.openGroup('stavenote ' + this.getAttribute('class'), this.getAttribute('id'));
         this.drawLedgerLines();
         if (shouldRenderStem)
             this.drawStem();
@@ -29398,7 +29397,6 @@ class Stem extends _element__WEBPACK_IMPORTED_MODULE_0__.Element {
         // the results of `.getExtents()`
         this.renderHeightAdjustment = 0;
         this.setOptions(options);
-        this.addClass('stem');
     }
     setOptions(options) {
         // Changing where the stem meets the head
@@ -29493,7 +29491,7 @@ class Stem extends _element__WEBPACK_IMPORTED_MODULE_0__.Element {
         // Draw the stem
         ctx.save();
         this.applyStyle();
-        ctx.openGroup(this.getAttribute('class'), this.getAttribute('id'), { pointerBBox: true });
+        ctx.openGroup('stem ' + this.getAttribute('class'), this.getAttribute('id'), { pointerBBox: true });
         ctx.beginPath();
         ctx.setLineWidth(Stem.WIDTH);
         ctx.moveTo(stem_x, stem_y - stemletYOffset + y_base_offset);

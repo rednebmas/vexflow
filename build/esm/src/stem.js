@@ -38,7 +38,6 @@ class Stem extends Element {
         this.stemletHeight = (options === null || options === void 0 ? void 0 : options.stemletHeight) || 0;
         this.renderHeightAdjustment = 0;
         this.setOptions(options);
-        this.addClass('stem');
     }
     setOptions(options) {
         this.stem_up_y_offset = (options === null || options === void 0 ? void 0 : options.stem_up_y_offset) || 0;
@@ -120,7 +119,7 @@ class Stem extends Element {
         const stemletYOffset = this.isStemlet ? stemHeight - this.stemletHeight * this.stem_direction : 0;
         ctx.save();
         this.applyStyle();
-        ctx.openGroup(this.getAttribute('class'), this.getAttribute('id'), { pointerBBox: true });
+        ctx.openGroup('stem ' + this.getAttribute('class'), this.getAttribute('id'), { pointerBBox: true });
         ctx.beginPath();
         ctx.setLineWidth(Stem.WIDTH);
         ctx.moveTo(stem_x, stem_y - stemletYOffset + y_base_offset);
