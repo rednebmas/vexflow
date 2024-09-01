@@ -258,6 +258,7 @@ class StaveNote extends StemmableNote {
         this.maxLine = 0;
         this.sortedKeyProps = [];
         this.ledgerLineStyle = {};
+        this.addClass('stavenote');
         this.clef = (_a = noteStruct.clef) !== null && _a !== void 0 ? _a : 'treble';
         this.octave_shift = (_b = noteStruct.octave_shift) !== null && _b !== void 0 ? _b : 0;
         this.glyphProps = Tables.getGlyphProps(this.duration, this.noteType);
@@ -860,7 +861,7 @@ class StaveNote extends StemmableNote {
         }
         L('Rendering ', this.isChord() ? 'chord :' : 'note :', this.keys);
         this.applyStyle();
-        ctx.openGroup('stavenote' + this.getAttribute('class'), this.getAttribute('id'));
+        ctx.openGroup(this.getAttribute('class'), this.getAttribute('id'));
         this.drawLedgerLines();
         if (shouldRenderStem)
             this.drawStem();
