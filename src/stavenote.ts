@@ -1263,7 +1263,7 @@ export class StaveNote extends StemmableNote {
 
     // Apply the overall style -- may be contradicted by local settings:
     this.applyStyle();
-    ctx.openGroup('stavenote', this.getAttribute('id'));
+    ctx.openGroup('stavenote' + this.getAttribute('class'), this.getAttribute('id'));
     this.drawLedgerLines();
     if (shouldRenderStem) this.drawStem();
     this.drawNoteHeads();
