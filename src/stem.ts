@@ -97,6 +97,8 @@ export class Stem extends Element {
     // the results of `.getExtents()`
     this.renderHeightAdjustment = 0;
     this.setOptions(options);
+
+    this.addClass('stem');
   }
 
   setOptions(options?: StemOptions): void {
@@ -211,7 +213,7 @@ export class Stem extends Element {
     // Draw the stem
     ctx.save();
     this.applyStyle();
-    ctx.openGroup('stem', this.getAttribute('id'), { pointerBBox: true });
+    ctx.openGroup(this.getAttribute('class'), this.getAttribute('id'), { pointerBBox: true });
     ctx.beginPath();
     ctx.setLineWidth(Stem.WIDTH);
     ctx.moveTo(stem_x, stem_y - stemletYOffset + y_base_offset);
